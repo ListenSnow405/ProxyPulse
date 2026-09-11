@@ -1,50 +1,90 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# ProxyPulse: generated files, local state, and secrets
 
-# dependencies
-/node_modules
+# Node.js dependencies and package-manager caches
+/node_modules/
+/.npm-cache/
 /.pnp
 .pnp.*
 .yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+!.yarn/patches/
+!.yarn/plugins/
+!.yarn/releases/
+!.yarn/versions/
 
-# testing
-/coverage
-
-# next.js
+# Frontend build output and framework runtime state
 /.next/
 /.vinext/
+/dist/
 /out/
+/.wrangler/
+/.sites-runtime/
+/.vercel/
+*.tsbuildinfo
+next-env.d.ts
+.eslintcache
 
-# misc
-.DS_Store
+# Python bytecode, test caches, and virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+/.pytest_cache/
+/.mypy_cache/
+/.ruff_cache/
+/.pyright/
+/.coverage
+.coverage.*
+/.hypothesis/
+/coverage.xml
+/htmlcov/
+/.venv/
+/venv/
+/env/
+
+# Local monitoring data and SQLite sidecar files
+/data/
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+
+# Local configuration and environment secrets
+/config.toml
+/config.local.toml
+.env
+.env.*
+!.env.example
+!.env.*.example
 *.pem
+*.key
+*.p12
+*.pfx
 
-# debug
+# Logs and diagnostic output
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 .pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
-.vercel
-
-# typescript
-next-env.d.ts
-/dist/
-/.wrangler/
-/.sites-runtime/
-/.agents/
-/.codex/
+/coverage/
 /outputs/
 /work/
-/.npm-cache/
-/data/
-/config.toml
-__pycache__/
-*.pyc
+
+# Local agent metadata
+/.agents/
+/.codex/
+
+# Editors and operating systems
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
