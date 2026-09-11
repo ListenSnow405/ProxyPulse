@@ -1,0 +1,24 @@
+[server]
+# 个人版本只接受 127.0.0.1 或 localhost，外部监听地址会被拒绝。
+host = "127.0.0.1"
+port = 8765
+static_path = "dist/client"
+
+[storage]
+database_path = "data/proxy-monitor.db"
+
+[monitor]
+interval_seconds = 10
+connect_timeout_seconds = 3.0
+request_timeout_seconds = 8.0
+failure_threshold = 3
+recovery_threshold = 2
+retention_days = 30
+
+# 任意一个目标能够返回 HTTP 响应，就认为代理链路仍然可达。
+# 延迟曲线与 P95 固定采用第一个目标，后续目标只用于防止误报。
+# 最稳定的做法是把其中一个地址换成你自己控制的轻量 /health 地址。
+targets = [
+  "https://cp.cloudflare.com/generate_204",
+  "https://www.apple.com/library/test/success.html",
+]
